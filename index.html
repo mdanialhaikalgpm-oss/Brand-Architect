@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Branding & Packaging Starter Kits</title>
+    <style>
+        /* --- Root Variables for Premium Branding --- */
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --royal-blue: #1d4ed8;
+            --gold: #d4af37;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        /* --- Basic Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--gold);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Interactive Tabs --- */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--gold);
+        }
+
+        /* --- Active Tab Styling using pure CSS state --- */
+        #tab1:checked ~ .tabs-container label[for="tab1"],
+        #tab2:checked ~ .tabs-container label[for="tab2"],
+        #tab3:checked ~ .tabs-container label[for="tab3"] {
+            background: var(--royal-blue);
+            border-color: var(--royal-blue);
+            box-shadow: 0 0 12px rgba(29, 78, 216, 0.4);
+        }
+
+        /* --- Hide Radio Inputs --- */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* --- Content Panels State Control --- */
+        .panel {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.4s ease;
+        }
+
+        #tab1:checked ~ .content-container #panel1,
+        #tab2:checked ~ .content-container #panel2,
+        #tab3:checked ~ .content-container #panel3 {
+            display: block;
+        }
+
+        /* --- Panel Content Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .panel {
+                padding: 20px;
+            }
+        }
+
+        .panel-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-info h2 span {
+            font-size: 0.9rem;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .panel-info .description {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* --- Features List --- */
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* --- Mockup Placeholder Block --- */
+        .mockup-placeholder {
+            background: #0f172a;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .mockup-placeholder svg {
+            width: 48px;
+            height: 48px;
+            fill: currentColor;
+            margin-bottom: 15px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: var(--gold);
+            color: #000;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- Animation --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Corporate Brand <span>Starter Kits</span></h1>
+        <p>Select a service tier below to view interactive breakdown details and visual delivery formats.</p>
+    </header>
+
+    <!-- State Controller Radio Buttons -->
+    <input type="radio" id="tab1" name="kit-tabs" checked>
+    <input type="radio" id="tab2" name="kit-tabs">
+    <input type="radio" id="tab3" name="kit-tabs">
+
+    <!-- CSS Tabs Container -->
+    <div class="tabs-container">
+        <label for="tab1" class="tab-btn">Essential Kit</label>
+        <label for="tab2" class="tab-btn">Premium Kit</label>
+        <label for="tab3" class="tab-btn">Elite Kit</label>
+    </div>
+
+    <!-- Content Panel Display Wrapper -->
+    <div class="content-container">
+        
+        <!-- Tab 1: Essential Kit -->
+        <div class="panel" id="panel1">
+            <div class="grid">
+                <div class="panel-info">
+                    <h2>Essential Kit <span>Service Based</span></h2>
+                    <p class="description">Perfect for consultants, agencies, and online service-based startups looking for a sharp, official corporate presence.</p>
+                    <ul class="features-list">
+                        <li>Custom Core Logo Design (3 Concepts)</li>
+                        <li>Official Brand Color Palette & Fonts</li>
+                        <li>Double-sided Business Card Template</li>
+                        <li>Corporate Letterhead (Word & PDF)</li>
+                        <li>Company Presentation Envelopes</li>
+                        <li>Branded Corporate Documentation Folder</li>
+                    </ul>
+                    <a href="#" class="cta-btn">Get Started</a>
+                </div>
+                <div class="mockup-placeholder">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <p><strong>Corporate Print Mockup Display</strong><br>Flat vector structures prepared for Inkscape & high-res print export.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Premium Kit -->
+        <div class="panel" id="panel2">
+            <div class="grid">
+                <div class="panel-info">
+                    <h2>Premium Kit <span>Product Packaging</span></h2>
+                    <p class="description">Tailored for product-oriented brands (F&B, Skincare, Cosmetics, Wellness) requiring professional packaging assets.</p>
+                    <ul class="features-list">
+                        <li>Everything Included in the Essential Kit</li>
+                        <li>Custom Outer Packaging Box Design</li>
+                        <li>Amber Glass/Matte Container Bottle Labels</li>
+                        <li>Aluminum Standing Pouch & Sachet Layouts</li>
+                        <li>Eco-Friendly Kraft & Non-Woven Tote Bags</li>
+                        <li>3D Realistic Packaging Layout Directions</li>
+                    </ul>
+                    <a href="#" class="cta-btn">Get Started</a>
+                </div>
+                <div class="mockup-placeholder">
+                    <svg viewBox="0 0 24 24"><path d="M22 6.92l-1.41-1.41-2.9 2.9C16.17 7.55 14.67 7 13 7c-3.56 0-6.6 2.45-7.55 5.75L3.54 11 2.12 12.41l3.69 3.69c.39.39 1.02.39 1.41 0l11.36-11.36 3.42 2.18L22 6.92z"/></svg>
+                    <p><strong>3D Packaging Mockup Display</strong><br>Formatted structural die-lines ready for wrapping in Blender or Canva.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Elite Kit -->
+        <div class="panel" id="panel3">
+            <div class="grid">
+                <div class="panel-info">
+                    <h2>Elite Kit <span>Full-Scale Exhibition</span></h2>
+                    <p class="description">The ultimate corporate launch strategy kit for brick-and-mortar storefronts, trade show exhibits, or kiosk booths.</p>
+                    <ul class="features-list">
+                        <li>Everything in Essential & Premium Kits</li>
